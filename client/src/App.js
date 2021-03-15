@@ -19,7 +19,7 @@ import '../node_modules/picnic/picnic.min.css'
 import './App.css'
 
 class App extends React.Component {
-  constructor () {
+  constructor (props) {
     super()
 
     let authState = authentication.getAuthState()
@@ -71,10 +71,15 @@ class App extends React.Component {
       this._logout()
     })
   }
+  componentDidMount(){
+    
+  }
 
   render () {
+    console.log("this.props",this.props.location)
+    const {location} = this.props;
     return (
-      <Router>
+      
         <div>
           <TopBar logout={this.logout} />
           <div className='mainbody'>
@@ -88,7 +93,6 @@ class App extends React.Component {
             </Switch>
           </div>
         </div>
-      </Router>
     )
   }
 
